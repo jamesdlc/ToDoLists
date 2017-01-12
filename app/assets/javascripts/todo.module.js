@@ -1,4 +1,4 @@
-angular.module('TodoApp', ['ngRoute', 'templates'])
+angular.module('TodoApp', ['ngRoute', 'templates', 'ngResource'])
   .config(config);
 
 config.$inject = ['$routeProvider', '$locationProvider'];
