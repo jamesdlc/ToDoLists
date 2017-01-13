@@ -2,8 +2,8 @@ angular
   .module('TodoApp')
   .controller('TodolistsController', TodolistsController);
 
-TodolistsController.$inject = ['TodolistService', '$location'];
-function TodolistsController ( TodolistService, $location ) {
+TodolistsController.$inject = ['TodolistsService', '$location'];
+function TodolistsController ( TodolistsService, $location ) {
   var vm = this;
   console.log('Todolists Controller is running');
   vm.todolists = [];
@@ -15,14 +15,14 @@ function TodolistsController ( TodolistService, $location ) {
   getTodolists();
 
   function getTodolists() {
-    TodolistService.query(function(data){
+    TodolistsService.query(function(data){
       console.log('here\'s the lists data in the controller', data);
       vm.todolists = data;
     });
   }
 
   function deleteTodolist(todolist, $event) {
-    TodolistService.remove({id: todolist.id}, handleDeleteSuccess);
+    TodolistsService.remove({id: todolist.id}, handleDeleteSuccess);
     $event.stopPropagation();
 
     function handleDeleteSuccess(data) {
@@ -34,7 +34,7 @@ function TodolistsController ( TodolistService, $location ) {
   function createTodolist() {
     console.log('create with', vm.newTodolistName);
     if(vm.newTodolistName.length > 1) {
-      TodolistService.save({name: vm.newTodolistName}, handleCreateSuccess);
+      TodolistsService.save({name: vm.newTodolistName}, handleCreateSuccess);
       vm.newTodolistName = '';
     }
   }

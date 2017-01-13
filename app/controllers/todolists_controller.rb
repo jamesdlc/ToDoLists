@@ -37,6 +37,7 @@ class TodolistsController < ApplicationController
   # DELETE /todolists/1
   # DELETE /todolists/1.json
   def destroy
+    @todolist.listitems.destroy_all
     @todolist.destroy
     head :no_content
   end

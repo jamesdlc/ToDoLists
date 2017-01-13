@@ -12,7 +12,7 @@ angular.module('TodoApp')
         'update': 'PUT /items/:id'
       };
     */
-    resource = $resource('/api/todolists/:id', {id: '@id'}, {
+    resource = $resource('/api/todolists/:todolistsId/listitems/:id', {todolistsId: '@todolistsId', listitemsId: '@id'}, {
       update: {
         method: 'PUT'
       },

@@ -8,6 +8,11 @@ function config ( $routeProvider, $locationProvider ) {
     .when('/', {
       templateUrl: 'todolists.template.html',
       controller: 'TodolistsController',
+      controllerAs: 'todolistsCtrl'
+    })
+    .when('/todolists/:todolistId', {
+      templateUrl: 'todolist.template.html',
+      controller: 'TodolistController',
       controllerAs: 'todolistCtrl'
     })
     .otherwise({
