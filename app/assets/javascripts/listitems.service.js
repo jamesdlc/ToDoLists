@@ -1,8 +1,8 @@
 angular.module('TodoApp')
-  .service('TodolistsService', TodolistsService);
+  .service('ListitemsService', ListitemsService);
 
-  TodolistsService.$inject = ['$resource'];
-  function TodolistsService($resource) {
+  ListitemsService.$inject = ['$resource'];
+  function ListitemsService($resource) {
     /* ngResource RESTful routes
       {
         'get':    'GET /items/:id',
@@ -12,7 +12,7 @@ angular.module('TodoApp')
         'update': 'PUT /items/:id'
       };
     */
-    resource = $resource('/api/todolists/:todolistsId/listitems/:id', {todolistsId: '@todolistsId', listitemsId: '@id'}, {
+    resource = $resource('/api/todolists/:todolistId/listitems/:listitemId', {todolistId: '@todolistId', listitemId: '@id'}, {
       update: {
         method: 'PUT'
       },

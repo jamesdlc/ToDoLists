@@ -1,1 +1,38 @@
-<h1>ToDo list template</h1>
+<h1>{{todolistCtrl.todolist.name}}</h1>
+
+<form class="form-inline" ng-submit="todolistCtrl.createListitem()">
+  <div class="form-group">
+    <input ng-model="todolistCtrl.newListitemTask" type="text" name="list" class="form-control" placeholder="Name" autofocus>
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-default" value="Add Task to {{todolistCtrl.todolist.name}}">
+  </div>
+</form>
+
+<ul class="list-group">
+
+  <li class="list-item" ng-repeat="listitem in todolistCtrl.listitems">
+    {{listitem.task}}
+    <div class="pull-right">
+      <a ng-click="todolistCtrl.toggleEditForm(listitem)">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </a>
+       <a ng-click="todolistCtrl.deleteListitem(listitem)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </a>
+    </div>
+
+    <div ng-show="listitem.showForm">
+      <br>
+      <form class="form-inline update-todo" ng-submit="todolistCtrl.updateListitem(listitem)">
+        <div class="form-group">
+          <input type="text" name="task" class="form-control" ng-model="listitem.task">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-block btn-default" value="Update">
+        </div>
+      </form>
+    </div>
+
+  </li>
+</ul>

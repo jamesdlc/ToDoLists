@@ -15,6 +15,11 @@ function config ( $routeProvider, $locationProvider ) {
       controller: 'TodolistController',
       controllerAs: 'todolistCtrl'
     })
+    .when('/todolists', {  //note same as above, JIC
+      templateUrl: 'todolists.template.html',
+      controller: 'TodolistsController',
+      controllerAs: 'todolistsCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });

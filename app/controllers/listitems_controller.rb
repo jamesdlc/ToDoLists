@@ -16,10 +16,10 @@ end
 # POST /listitems
 # POST /listitems.json
 def create
-  @listitem = listitem.new(listitem_params)
+  @listitem = Listitem.new(listitem_params)
 
   if @todolist.listitems << @listitem
-    render :show, status: :created, location: list_listitem_path(@todolist, @listitem)
+    render :show, status: :created, location: todolist_listitem_path(@todolist, @listitem)
   else
     render json: @listitem.errors, status: :unprocessable_entity
   end
@@ -29,7 +29,7 @@ end
 # PATCH/PUT /listitems/1.json
 def update
   if @listitem.update(listitem_params)
-    render :show, status: :ok, location: list_listitem_path(@todolist, @listitem)
+    render :show, status: :ok, location: todolist_listitem_path(@todolist, @listitem)
   else
     render json: @listitem.errors, status: :unprocessable_entity
   end
@@ -54,6 +54,6 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def listitem_params
-    params.require(:listitem).permit(:name, :todolist_id)
+    params.require(:listitem).permit(:task, :todolist_id)
   end
 end
