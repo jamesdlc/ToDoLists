@@ -35,6 +35,24 @@ body {
 .inner {
   padding: 30px;
 }
+//todolists index
+.todo-lists li {
+  list-style-type: none;
+}
+
+.todo-lists-name{
+  font-size: 2.5rem;
+
+  .pull-right {
+    font-size: 1.5rem;
+    margin-top: 12px;
+  }
+}
+
+.todo-lists-name:hover {
+  border-bottom: 1px solid white;
+}
+
 
 /*
  * Globals

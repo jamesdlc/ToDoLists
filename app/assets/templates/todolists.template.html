@@ -1,14 +1,3 @@
-<ul class="todolist-group">
-  <li class="todolist-group-item" ng-repeat="todolist in todolistsCtrl.todolists" ng-click="todolistsCtrl.showTodolist(todolist)">
-    {{todolist.name}}
-    <div class="pull-right">
-      <a ng-click="todolistsCtrl.deleteTodolist(todolist, $event);">
-        <span class="glyphicon glyphicon-trash"></span>
-      </a>
-    </div>
-  </li>
-</ul>
-
 <form class="form-inline" ng-submit="todolistsCtrl.createTodolist()">
   <div class="form-group">
     <input ng-model="todolistsCtrl.newTodolistName" type="text" name="todolist" class="form-control" placeholder="Name" autofocus>
@@ -17,3 +6,16 @@
     <input type="submit" class="btn btn-default" value="Create Todolist">
   </div>
 </form>
+
+<div ng-repeat="todolist in todolistsCtrl.todolists" ng-click="todolistsCtrl.showTodolist(todolist)">
+  <ul class="todo-lists">
+    <li class="todo-lists-name">
+        {{todolist.name}}
+        <div class="pull-right">
+          <a ng-click="todolistsCtrl.deleteTodolist(todolist, $event);">
+            <span class="glyphicon glyphicon-trash"></span>
+          </a>
+        </div>
+    </li>
+  </ul>
+</div>
