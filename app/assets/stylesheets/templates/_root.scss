@@ -53,6 +53,10 @@ body {
   border-bottom: 1px solid white;
 }
 
+.template-container {
+  margin-top: 12%;
+}
+
 
 /*
  * Globals
@@ -103,7 +107,6 @@ a:hover {
   }
   /* Start the vertical centering */
   .site-wrapper-inner {
-    vertical-align: middle;
   }
   /* Handle the widths */
   .masthead,
